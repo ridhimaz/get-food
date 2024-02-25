@@ -2,14 +2,14 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
-
+import "./SignupStyles.css";
 export default function Signup() {
 
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", location: "" })
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:3000/api/createuser", {
+        const response = await fetch("https://get-food-c31i.onrender.com/api/createuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,8 +35,10 @@ export default function Signup() {
     }
 
     return (
-        <div className='container'>
-            <Form onSubmit={handleSubmit}>
+        <div className='signup'>
+            <h1 id="heading">Sign Up</h1>
+            <p id="para">Tantalizing flavors await you!</p>
+            <Form onSubmit={handleSubmit} className='signup-form'>
 
                 <Form.Group className="mb-3" >
                     <Form.Label>Name</Form.Label>

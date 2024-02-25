@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
-
+import "./LoginStyles.css";
 export default function Login() {
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ email: "", password: "" })
@@ -10,7 +10,7 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:3000/api/loginuser", {
+        const response = await fetch("https://get-food-c31i.onrender.com/api/loginuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,27 +40,28 @@ export default function Login() {
     }
 
     return (
-        <div className='container'>
-            <Form onSubmit={handleSubmit}>
-
+        <div className='login'>
+            <h1 id="heading">Login</h1>
+            <p id="para">Tantalizing flavors await you!</p>
+            <Form className="form"onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <input type="email" placeholder="Enter email" name="email" value={credentials.email} onChange={onChange} />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+             
+                    <input 
+                    type="email" placeholder="Enter your email here" name="email" value={credentials.email} onChange={onChange} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
                     <input type="password" placeholder="Password" name="password" value={credentials.password} onChange={onChange} autoComplete="on" />
                 </Form.Group>
 
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className='btn submit-btn'>
                     Submit
                 </Button>
-                <Link to="/createuser" className="m-3 btn btn-danger">I am a new user</Link>
+               
+                  <Link to="/createuser" className="new-user">I am a new user</Link>
+               
+              
             </Form>
         </div>
     )
