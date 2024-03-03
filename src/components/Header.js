@@ -45,10 +45,10 @@ export default function Header() {
                 {
                 (!localStorage.getItem("authToken")) ?
                   <div  className="btn-box" style={{display:"flex",gap:"2px"}}>
-                    <Link className='nav-link btn bg-white text-success mx-1 p-2' to="/login">
+                    <Link className='nav-link btn bg-white  mx-1 'style={{color:"rgb(243, 148, 60)", padding:"10px 30px"}} to="/login">
                       Login
                     </Link>
-                    <Link className='nav-link btn bg-white text-success mx-1 p-2' to="/createuser">
+                    <Link className='nav-link btn bg-white mx-1' style={{color:"rgb(243, 148, 60)", padding:"10px 30px"}} to="/createuser">
                       SignUp
                     </Link>
                   </div>
