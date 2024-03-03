@@ -1,11 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;;
+}
+:root {
+    --main-color: rgb(243, 148, 60);
+  }
+  #title{
+     font-family: "Cedarville Cursive";
+        font-weight: 400;
+        font-style: normal;
+        color: white;
+       
+  }
 #carousel{
     max-height: 500px;
+}
+.navbar-box{
+    background-color: var(--main-color)
 }
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto ;
     grid-gap: 10px;
     padding: 10px;
+
   }
+  .caption{
+    display: flex;
+    transform: translate(-50%, -50%);
+  }
+
+#carousel-input{
+    margin-right:5px;
+    width:100%;
+}
+  .food-category{
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
  
+  font-style: normal;
+  }
+  .footer{
+    font-family: "Montserrat", sans-serif;
+  }
+  @media (max-width:991px)
+  {
+    .btn-box{
+        flex-direction: column;
+    }
+    .cart-box{
+        flex-direction: column;
+        gap:2px;
+    }
+  }
+  @media (max-width:360px)
+  {
+    .caption{
+        flex-direction: column;
+        gap:10px;
+    }
+  }

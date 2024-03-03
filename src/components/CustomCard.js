@@ -60,7 +60,7 @@ export default function CustomCard(props) {
             {foodItems.description.slice(0,30)+"..."}
           </Card.Text>
           <div className='container'>
-            <select className='bg-success' onChange={(e) => setQty(e.target.value)}>
+            <select  onChange={(e) => setQty(e.target.value)}>
               {
                 Array.from(Array(6), (e, i) => {
                   return (
@@ -69,18 +69,17 @@ export default function CustomCard(props) {
                 })
               }
             </select>
-            <select className='bg-success' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
+            <select className='mx-2' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
               {
                 priceOptions.map((data) => {
                   return <option key={data} value={data}>{data}</option>
                 })
               }
             </select>
-            <div>₹{finalPrice}/-</div>
+            <div style={{margin:"10px 0"}} >₹{finalPrice}/-</div>
           </div>
           <hr></hr>
-          <button className='btn btn-success justify-center ms-2' onClick={handleAddToCart}>Add to Cart</button>
-
+          <button className='btn justify-center ms-2' style={{backgroundColor:"rgb(243, 148, 60)",color:"#fff"}} onClick={handleAddToCart}>Add to Cart</button>
         </Card.Body>
       </Card>
     </div>

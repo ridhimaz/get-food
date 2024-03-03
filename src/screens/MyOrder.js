@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import Footer from '../components/Footer';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function MyOrder() {
 
@@ -21,11 +21,6 @@ export default function MyOrder() {
             console.log("response",response)
             setorderData(response)
         })
-
-        // await res.map((data)=>{
-        //    console.log(data)
-        // })
-
     }
 
     useEffect(() => {
@@ -38,7 +33,7 @@ export default function MyOrder() {
                 <Header />
             </div>
 
-            <div className='container'>
+            <div className='container' style={{marginBottom:"20px",minHeight:"72vh"}}>
                 <div className='row'>
 
                     {orderData.length !== 0 ? Array(orderData).map(data => {
@@ -49,14 +44,13 @@ export default function MyOrder() {
                                     return (
                                         item.map((arrayData) => {
                                             return (
-                                                <div  >
+                                                <div>
                                                     {arrayData.order_date ? <div className='m-auto mt-5'>
 
                                                         {data = arrayData.order_date}
                                                         <hr />
                                                     </div> :
-
-                                                        <div className='col-12 col-md-6 col-lg-3' >
+                                                        <div className='col-lg-3 col-md-4' >
                                                             <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
                                                                 <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
                                                                 <div className="card-body">
@@ -70,7 +64,6 @@ export default function MyOrder() {
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                     }
 
@@ -86,8 +79,8 @@ export default function MyOrder() {
 
 
             </div>
-
-            <Footer />
+           
+            <Footer/>
         </div>
     )
 }

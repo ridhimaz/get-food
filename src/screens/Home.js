@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 import CustomCard from '../components/CustomCard';
-
+import Footer from '../components/Footer';
 export default function Home() {
 
   const [search, setSearch] = useState('');
@@ -31,21 +30,25 @@ export default function Home() {
 
       <div id="carouselExample" className="carousel slide" style={{ objectFit: "contain" }}>
         <div className="carousel-inner" id="carousel">
-          <div className='carousel-caption' style={{ zIndex: "2" }}>
-            <div className="d-flex justify-content-center" role="search" style={{}}>
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </div>
+          <div className='caption' style={{
+            zIndex: "2", position: "absolute", top: "50%",
+            left: "50%", width: "70%"
+          }}>
+            <input id='carousel-input' type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <button className="btn" style={{
+              borderColor: "#ff9800",
+              color: "rgb(243, 148, 60)"
+            }} type="submit">Search</button>
           </div>
 
           <div className="carousel-item active">
-            <img width="80%" src="https://source.unsplash.com/random/3×3?indian-food" style={{ filter: "brightness(30%)" }} className="d-block w-100" alt="..." />
+            <img width="80%" src="https://source.unsplash.com/random/3×3?pasta" style={{ filter: "brightness(40%)" }} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item ">
-            <img width="80%" src="https://source.unsplash.com/random/3×3?dessert" style={{ filter: "brightness(30%)" }} className="d-block w-100" alt="..." />
+            <img width="80%" src="https://source.unsplash.com/random/3×3?burger" style={{ filter: "brightness(40%)" }} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img width="80%" src="https://source.unsplash.com/random/3×3?food" style={{ filter: "brightness(30%)" }} className="d-block w-100" alt="..." />
+            <img width="80%" src="https://source.unsplash.com/random/3×3?pizza" style={{ filter: "brightness(40%)" }} className="d-block w-100" alt="..." />
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -58,21 +61,21 @@ export default function Home() {
         </button>
       </div>
 
-      <div className='container' > 
+      <div className='container' style={{minHeight:"72vh"}}>
         {
           foodCat.length !== 0
             ? (foodCat.map((data) => {
               return (
-                <div className='row' style={{rowGap:"20px"}} >
-                  <div key={data._id} className='fs-3 m-3'>
+                <div className='row' style={{rowGap: "40px"}} >
+                  <div key={data._id} className='fs-3 food-category'style={{marginTop:"50px"}} >
                     {data.CategoryName}
                   </div>
                   <hr />
                   {
                     foodItem.length !== 0
-                      ? (foodItem.filter((item) => item.CategoryName === data.CategoryName &&  item.name.toLowerCase().includes(search.toLocaleLowerCase()))
+                      ? (foodItem.filter((item) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(search.toLocaleLowerCase()))
                         .map((filterItems) => {
-                          return <div className='col-md-6 col-lg-3' key={filterItems._id}>
+                          return <div className='col-lg-4 col-md-6' key={filterItems._id}>
                             <div>
                               <CustomCard key={filterItems.id} foodItems={filterItems} foodOptions={filterItems.options[0]}></CustomCard>
                             </div>
@@ -86,7 +89,7 @@ export default function Home() {
             : ""
         }
       </div>
-     
-    </div>
+<Footer/>
+    </div >
   )
 }
