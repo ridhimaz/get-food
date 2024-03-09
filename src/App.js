@@ -15,7 +15,7 @@ function App() {
     <CartProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home/>}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/createuser" element={<Signup />}></Route>
           <Route path="/myOrder" element={<MyOrder/>}></Route>

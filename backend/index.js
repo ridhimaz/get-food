@@ -1,8 +1,10 @@
 const express =require('express');
 const app=express();
+const cors= require("cors")
 const port=3000;
 
 const mongoDB= require("./db");
+
 mongoDB();
 
 app.use(function(req, res, next) {
@@ -12,9 +14,12 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.json())
+app.use(cors())
 app.use('/api',require("./Routes/CreateUser"))
 app.use('/api',require("./Routes/DisplayData"))
 app.use('/api',require("./Routes/OrderData"))
+app.use('/api',require("./Routes/PaymentRoute"))
+
 app.get("/", (req,res)=>{
     res.send("hello world")
 })

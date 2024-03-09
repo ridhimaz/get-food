@@ -5,13 +5,13 @@ const Order =require("../models/Orders");
 
 router.post("/orderData", async(req,res)=>{
   let data=req.body.order_data;
-  console.log("data",data)
+  // console.log("data",data)
   await data.splice(0,0,{order_date:req.body.order_date})
 
   let eId=await Order.findOne({'email':req.body.email})
   if(eId==null)
   {
-    console.log("new user")
+    // console.log("new user")
     try{
         await Order.create({
             email:req.body.email,
@@ -23,7 +23,7 @@ router.post("/orderData", async(req,res)=>{
     }
   }
   else{
-    console.log("not new user")
+    // console.log("not new user")
     try{
         await Order.findOneAndUpdate({
             email:req.body.email},

@@ -41,25 +41,28 @@ export default function Login() {
 
     return (
         <div className='login'>
-            <h1 id="heading">Login</h1>
-            <p id="para">Tantalizing flavors await you!</p>
-            <Form className="form"onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+            <h1 id="heading" style={{ zIndex: '2'}}>Login</h1>
+            <p id="para" style={{ zIndex: '2'}}>Tantalizing flavors await you!</p>
+            <Form className="signup-form"onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-             
+                <Form.Label>Name</Form.Label>
                     <input 
                     type="email" placeholder="Enter your email here" name="email" value={credentials.email} onChange={onChange} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
                     <input type="password" placeholder="Password" name="password" value={credentials.password} onChange={onChange} autoComplete="on" />
                 </Form.Group>
 
 
-                <Button variant="primary" type="submit" className='btn submit-btn'>
+                <Button variant="primary" type="submit" style={{width:"100%",marginTop:"10px"}}>
                     Submit
                 </Button>
-               
-                  <Link to="/createuser" className="new-user">I am a new user</Link>
+               <div style={{textAlign:"center"}}>
+               <Link to="/createuser"  className="new-user">I am a new user</Link>
+               </div>
+                
                
               
             </Form>
