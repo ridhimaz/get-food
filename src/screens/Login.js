@@ -45,7 +45,7 @@ export default function Login() {
             <p id="para" style={{ zIndex: '2'}}>Tantalizing flavors await you!</p>
             <Form className="signup-form"onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Email</Form.Label>
                     <input 
                     type="email" placeholder="Enter your email here" name="email" value={credentials.email} onChange={onChange} />
                 </Form.Group>

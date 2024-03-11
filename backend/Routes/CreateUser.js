@@ -27,8 +27,10 @@ router.post("/createuser",[
             location:req.body.location 
         });
         res.json({success:true});
+        alert("User created!")
     }
     catch(error){
+      alert("Alredy a user.")
      res.json({success:false});
     }
 })
